@@ -14,6 +14,24 @@ use backend\models\RegistrationSearch;
 $this->title = "Dashbord Selection";
 ?>
 
+<h4> Exporter tous les participants</h4>
+<?php
+$gridColumns = [
+'email',
+'nom',
+'prenom',
+];
+
+$searchModel = new RegistrationSearch();
+$dataAccepted = $searchModel->search (Yii::$app->request->queryParams);
+
+echo ExportMenu::widget([
+    'dataProvider' =>$dataAccepted,
+    'columns' => $gridColumns
+    ]);
+?>
+
+
 <h4> Exporter les participants acceptés</h4>
 <?php
 $gridColumns = [
