@@ -31,7 +31,7 @@ $gridColumns = [
 ];
 
 $searchModel = new RegistrationSearch();
-$dataAccepted = $searchModel->search(Yii::$app->request->queryParams);
+$dataAccepted = $searchModel->searchSpecial(Yii::$app->request->queryParams);
 
 echo ExportMenu::widget([
     'dataProvider' =>$dataAccepted,
