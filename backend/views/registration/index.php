@@ -35,11 +35,17 @@ echo ExportMenu::widget([
 <h4> Exporter les participants acceptés</h4>
 <?php
 $gridColumns = [
+'id',
 'email',
 'nom',
 'prenom',
 'annee',
 'specialite',
+'known',
+'level',
+'coming',
+'participated',
+'interested'
 ];
 
 $searchModel = new RegistrationSearch();
@@ -53,11 +59,17 @@ echo ExportMenu::widget([
 <h4>Exporter les participants en attente</h4>
 <?php
 $gridColumns = [
+'id',
 'email',
 'nom',
 'prenom',
 'annee',
 'specialite',
+'known',
+'level',
+'coming',
+'participated',
+'interested'
 ];
 
 $searchModel = new RegistrationSearch();
@@ -81,6 +93,7 @@ echo ExportMenu::widget([
         },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            
 
             'id',
             'nom',
@@ -94,7 +107,8 @@ echo ExportMenu::widget([
              'level',
              'coming',
              'participated',
-             'interested:ntext',
+             'interested',
+             'accepted',
              
             // 'accepted',
 
