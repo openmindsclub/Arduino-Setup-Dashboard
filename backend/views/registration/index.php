@@ -17,13 +17,21 @@ $this->title = "Dashbord Selection";
 <h4> Exporter tous les participants</h4>
 <?php
 $gridColumns = [
+'id',
 'email',
 'nom',
 'prenom',
+'annee',
+'specialite',
+'known',
+'level',
+'coming',
+'participated',
+'interested'
 ];
 
 $searchModel = new RegistrationSearch();
-$dataAccepted = $searchModel->search (Yii::$app->request->queryParams);
+$dataAccepted = $searchModel->search(Yii::$app->request->queryParams);
 
 echo ExportMenu::widget([
     'dataProvider' =>$dataAccepted,
@@ -96,6 +104,7 @@ echo ExportMenu::widget([
             
 
             'id',
+            'email',
             'nom',
             'prenom',
             'annee',
