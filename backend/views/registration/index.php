@@ -31,7 +31,7 @@ $gridColumns = [
 ];
 
 $searchModel = new RegistrationSearch();
-$dataAccepted = $searchModel->searchSpecial(Yii::$app->request->queryParams);
+$dataAccepted = $searchModel->search(Yii::$app->request->queryParams);
 
 echo ExportMenu::widget([
     'dataProvider' =>$dataAccepted,
@@ -88,6 +88,32 @@ echo ExportMenu::widget([
     'columns' => $gridColumns
     ]);
 ?>
+
+<h4>Exporter les participants refusés</h4>
+<?php
+$gridColumns = [
+'id',
+'email',
+'nom',
+'prenom',
+'annee',
+'specialite',
+'known',
+'level',
+'coming',
+'participated',
+'interested'
+];
+
+$searchModel = new RegistrationSearch();
+$dataWaiting = $searchModel->searchRefused(Yii::$app->request->queryParams);
+
+echo ExportMenu::widget([
+    'dataProvider' =>$dataWaiting,
+    'columns' => $gridColumns
+    ]);
+?>
+
 
 <br><br>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
