@@ -117,10 +117,9 @@ class RegistrationSearch extends Registration
 
         return $dataProvider;
     }
-
-    public function searchSpecial($params)
+    public function searchRefused($params)
     {
-        $query = Registration::find()->andwhere(['>=', 'id','172']);
+        $query = Registration::find()->andwhere(['accepted' => 0]);
 
         // add conditions that should always apply here
 
@@ -155,8 +154,8 @@ class RegistrationSearch extends Registration
             ->andFilterWhere(['like', 'interested', $this->interested]);
 
         return $dataProvider;
-    }
 
+    }
     public function search($params)
     {
         $query = Registration::find();
